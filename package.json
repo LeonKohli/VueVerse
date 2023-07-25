@@ -17,9 +17,14 @@
   "dependencies": {
     "@headlessui/vue": "^1.7.14",
     "@heroicons/vue": "^2.0.18",
+    "@tailwindcss/typography": "^0.5.9",
+    "@types/marked": "^5.0.1",
     "@vue-hero-icons/outline": "^1.7.2",
     "flowbite": "^1.7.0",
     "flowbite-vue": "^0.0.16",
+    "marked": "^5.1.2",
+    "marked-gfm-heading-id": "^3.0.4",
+    "marked-mangle": "^1.1.0",
     "pinia": "^2.1.4",
     "vue": "^3.3.4",
     "vue-router": "^4.2.4"
@@ -52,6 +57,7 @@
     "vite": "^4.4.6",
     "vite-svg-loader": "^4.0.0",
     "vitest": "^0.33.0",
+    "vue-marked": "^0.1.1",
     "vue-tsc": "^1.8.6"
   }
 }
