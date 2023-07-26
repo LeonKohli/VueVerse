@@ -22,6 +22,7 @@
     "@vue-hero-icons/outline": "^1.7.2",
     "flowbite": "^1.7.0",
     "flowbite-vue": "^0.0.16",
+    "highlight.js": "^11.8.0",
     "marked": "^5.1.2",
     "marked-gfm-heading-id": "^3.0.4",
     "marked-mangle": "^1.1.0",

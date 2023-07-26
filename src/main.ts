@@ -4,11 +4,12 @@ import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import { createPinia } from 'pinia'
 import './assets/main.css'
+import 'highlight.js/styles/atom-one-dark.css'
 import App from './App.vue'
 import EditorView from './views/EditorView.vue'
 import PreviewView from './views/PreviewView.vue'
 import MarkdownView from './views/MarkdownView.vue'
-
+import hljs from 'highlight.js'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -34,8 +35,23 @@ if (userPrefersDark) {
   document.documentElement.classList.remove('dark')
 }
 
-
 const app = createApp(App)
+
+app.directive('highlightjs', {
+  beforeMount: function (el) {
+    const blocks = el.querySelectorAll('pre code');
+    blocks.forEach((block: HTMLElement) => {
+      hljs.highlightElement(block);
+    });
+  },
+  updated: function (el) {
+    const blocks = el.querySelectorAll('pre code');
+    blocks.forEach((block: HTMLElement) => {
+      hljs.highlightElement(block);
+    });
+  },
+});
+
 app.use(router)
 app.use(createPinia())
 app.mount('#app')

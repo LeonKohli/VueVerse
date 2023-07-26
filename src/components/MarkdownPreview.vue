@@ -3,7 +3,7 @@
 <template>
   <div class="flex flex-col h-screen">
     <ButtonBar />
-    <div
+    <div v-highlightjs
       class="flex-grow w-full p-4 mb-4 overflow-y-auto prose text-white border border-gray-200 rounded-lg rounded-b-lg dark:prose-invert bg-gray-50 dark:border-gray-600 dark:text-white dark:bg-gray-800 markdown-preview"
       v-html="markdownContent">
     </div>
