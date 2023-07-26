@@ -33,6 +33,7 @@ export default {
 
 
 
+
     let isResizing = false
 
     const resizeStart = () => {
@@ -74,6 +75,8 @@ export default {
       previewWidth,
       resizeStart
     }
+
+
   }
 }
 </script>

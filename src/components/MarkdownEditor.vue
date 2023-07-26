@@ -2,8 +2,7 @@
 
 <template>
     <form class="flex flex-col h-screen">
-        <ButtonBar />
-
+        <ButtonBar :formatCode="formatCode" />
         <div
             class="flex-grow w-full mb-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
             <div class="px-4 py-2 bg-white rounded-b-lg dark:bg-gray-800">
@@ -33,7 +32,7 @@ textarea {
 <script lang="ts">
 import { ref, watch } from 'vue'
 import { useMarkdownStore } from '../stores/markdownStore'
-import ButtonBar from './ButtonBar.vue';
+import ButtonBar from './ButtonBarEdit.vue';
 
 export default {
     components: {

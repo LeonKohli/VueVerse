@@ -12,9 +12,9 @@
 
 <style scoped>
 .markdown-preview.prose {
-  min-height: calc(100vh - 2rem);
-  resize: none;
-  overflow-y: auto;
+  min-height: calc(100vh - 2rem) !important;
+  resize: none !important;
+  overflow-y: auto !important;
   max-width: none !important;
   word-wrap: break-word !important;
 }
@@ -24,7 +24,7 @@
 import { marked } from 'marked'
 import { computed } from 'vue'
 import { useMarkdownStore } from '../stores/markdownStore'
-import ButtonBar from './ButtonBar.vue' // Import ButtonBar component
+import ButtonBar from './ButtonBarPrev.vue' // Import ButtonBar component
 
 export default {
   components: {
