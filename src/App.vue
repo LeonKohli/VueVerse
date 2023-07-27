@@ -1,16 +1,24 @@
-<!-- src/App.vue -->
-
 <template>
-  <router-view />
+  <MarkdownView />
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { RouterView } from 'vue-router'
+import MarkdownView from './views/MarkdownView.vue'
 
 export default defineComponent({
+  name: 'App',
   components: {
-    RouterView
+    MarkdownView
   }
 })
 </script>
+
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+}
+</style>

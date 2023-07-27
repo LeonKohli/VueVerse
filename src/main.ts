@@ -6,6 +6,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { createPinia } from 'pinia'
 import './assets/main.css'
 import 'highlight.js/styles/atom-one-dark.css'
+import { autoAnimatePlugin } from '@formkit/auto-animate/vue'
 import App from './App.vue'
 import MarkdownView from './views/MarkdownView.vue'
 import hljs from 'highlight.js'
@@ -39,5 +40,6 @@ const app = createApp(App)
 
 
 app.use(router)
+app.use(autoAnimatePlugin)
 app.use(createPinia())
 app.mount('#app')

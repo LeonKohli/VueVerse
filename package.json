@@ -15,6 +15,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@formkit/auto-animate": "^0.7.0",
     "@gerhobbelt/markdown-it-highlightjs": "^3.1.0-7",
     "@headlessui/vue": "^1.7.14",
     "@heroicons/vue": "^2.0.18",

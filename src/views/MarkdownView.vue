@@ -2,11 +2,15 @@
 
 <template>
   <div class="flex h-screen bg-gray-700">
-    <MarkdownEditor class="flex-grow" ref="editor" :style="{ width: `${editorWidth}px` }" />
-    <div class="resize-bar cursor-col-resize" @mousedown="resizeStart" />
-    <MarkdownPreview class="flex-grow" ref="preview" :style="{ width: `${previewWidth}px` }" />
+    <MarkdownEditor v-if="!store.isFullscreen || store.fullscreenComponent === 'editor'" class="flex-grow" ref="editor"
+      :style="{ width: store.isFullscreen ? '100vw' : `${editorWidth}px` }" />
+    <div class="resize-bar cursor-col-resize" @mousedown="resizeStart" v-if="!store.isFullscreen" />
+    <MarkdownPreview v-if="!store.isFullscreen || store.fullscreenComponent === 'preview'" class="flex-grow" ref="preview"
+      :style="{ width: store.isFullscreen ? '100vw' : `${previewWidth}px` }" />
   </div>
 </template>
+
+
 
 <style scoped>
 .resize-bar {
@@ -28,6 +32,7 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import MarkdownEditor from '../components/MarkdownEditor.vue'
 import MarkdownPreview from '../components/MarkdownPreview.vue'
+import { useMarkdownStore } from '../stores/markdownStore'
 
 export default {
   components: {
@@ -35,11 +40,9 @@ export default {
     MarkdownPreview
   },
   setup() {
+    const store = useMarkdownStore();
     const editorWidth = ref(window.innerWidth / 2)
     const previewWidth = ref(window.innerWidth / 2)
-
-
-
 
     let isResizing = false
 
@@ -50,8 +53,8 @@ export default {
     }
 
     const resize = (e: MouseEvent) => {
-
       if (!isResizing) return
+      if (store.isFullscreen) return // Do not resize in fullscreen mode
 
       editorWidth.value = e.clientX
       previewWidth.value = window.innerWidth - e.clientX
@@ -78,12 +81,11 @@ export default {
     })
 
     return {
+      store,
       editorWidth,
       previewWidth,
       resizeStart
     }
-
-
   }
 }
 </script>

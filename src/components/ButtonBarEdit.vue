@@ -96,7 +96,8 @@
             </div>
         </div>
         <button type="button" data-tooltip-target="tooltip-fullscreen"
-            class="p-2 text-gray-500 rounded cursor-pointer sm:ml-auto hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+            class="p-2 text-gray-500 rounded cursor-pointer sm:ml-auto hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600"
+            @click="store.fullscreenEditor">
             <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 19 19">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M13 1h5m0 0v5m0-5-5 5M1.979 6V1H7m0 16.042H1.979V12M18 12v5.042h-5M13 12l5 5M2 1l5 5m0 6-5 5" />
@@ -110,8 +111,12 @@
         </div>
     </div>
 </template>
-  
+
+
+
+
 <script lang="ts">
+
 export default {
     props: {
         formatCode: {
@@ -120,4 +125,10 @@ export default {
         },
     },
 }
+</script>
+
+<script setup lang="ts">
+import { useMarkdownStore } from '../stores/markdownStore'
+
+const store = useMarkdownStore()
 </script>
