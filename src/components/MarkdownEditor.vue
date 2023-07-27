@@ -4,8 +4,8 @@
     <form class="flex flex-col h-screen">
         <ButtonBar :formatCode="formatCode" />
         <div
-            class="flex-grow w-full mb-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
-            <div class="px-4 py-2 bg-white rounded-b-lg dark:bg-gray-800">
+            class="flex-grow w-full mb-4 prose border border-gray-200 markdown-edit dark:prose-invert bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
+            <div class="px-6 py-2 bg-white rounded-b-lg dark:bg-gray-800">
                 <label for="editor" class="sr-only">Publish post</label>
                 <textarea ref="textarea" v-model="content" id="editor"
                     class="block w-full px-0 text-sm text-gray-800 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400"
@@ -18,13 +18,19 @@
   
 
 <style scoped>
+.markdown-edit.prose {
+    min-height: calc(100vh - 2rem) !important;
+    resize: none !important;
+    overflow-y: auto !important;
+    max-width: none !important;
+    word-wrap: break-word !important;
+}
+
 textarea {
-    min-height: calc(100vh - 2rem);
-    /* take full height, reduce the space for padding and margin */
-    resize: none;
-    /* prevent user resizing */
-    overflow-y: auto;
-    /* enable vertical scrolling */
+    min-height: calc(100vh - 2rem) !important;
+    resize: none !important;
+    max-width: none !important;
+    word-wrap: break-word !important;
 }
 </style>
 

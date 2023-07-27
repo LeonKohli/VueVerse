@@ -3,16 +3,23 @@
 <template>
   <div class="flex h-screen bg-gray-700">
     <MarkdownEditor class="flex-grow" ref="editor" :style="{ width: `${editorWidth}px` }" />
-    <div class="cursor-col-resize" @mousedown="resizeStart" />
+    <div class="resize-bar cursor-col-resize" @mousedown="resizeStart" />
     <MarkdownPreview class="flex-grow" ref="preview" :style="{ width: `${previewWidth}px` }" />
   </div>
 </template>
 
 <style scoped>
-.cursor-col-resize {
+.resize-bar {
   cursor: col-resize;
-  background-color: #444;
-  width: 10px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  border-right: 1px solid rgba(0, 0, 0, 0.5);
+  width: 1px;
+  transition: all 0.3s ease;
+}
+
+.resize-bar:hover {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
 }
 </style>
 
